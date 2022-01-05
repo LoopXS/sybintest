@@ -208,7 +208,7 @@ Note: __For both the cases /fplay also can be used by admins to play the song im
 
 3. Play from a YouTube playlist
 Command: **/yplay**
-__First get a playlist file from @GetPlaylistBot or @DumpPlaylist and reply to playlist file.__
+__First get a playlist file and reply to playlist file.__
 
 4. Live Stream
 Command: **/stream**
@@ -231,9 +231,9 @@ For private channels , make sure both the bot and USER account is a member of ch
     SETTINGS_HELP="""
 **You can easily customize you player as per you needs. The following configurations are available:**
 
-🔹Command: **/settings**
+🔹 Command: **/settings**
 
-🔹AVAILABLE CONFIGURATIONS:
+🔹 AVAILABLE CONFIGURATIONS:
 
 **Player Mode** -  __This allows you to run your player as 24/7 music player or only when there is song in queue. 
 If disabled, player will leave from the call when the playlist is empty.
@@ -382,7 +382,7 @@ Tip: __You can easily change the CHAT config by adding the user account and bot 
 
 3. `BOT_TOKEN` : __[@Botfather](https://telegram.dog/BotFather)__
 
-4. `SESSION_STRING` : __Generate From here [GenerateStringName](https://repl.it/@subinps/getStringName)__
+4. `SESSION_STRING`
 
 5. `CHAT` : __ID of Channel/Group where the bot plays Music.__
 
