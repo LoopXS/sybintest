@@ -71,7 +71,7 @@ async def add_to_playlist(_, message: Message):
         admins = await get_admins(Config.CHAT)
         if Config.ADMIN_ONLY:
             if not (message.from_user is None and message.sender_chat or message.from_user.id in admins):
-                k=await message.reply_sticker("CAADBQADsQIAAtILIVYld1n74e3JuQI")
+                k=await message.reply_sticker("CAADBAADaQcAAkU7eVIWSqeWB_p-rgI")
                 await delete_messages([message, k])
                 return
         type=""
@@ -379,10 +379,10 @@ async def channel_play_list(client, m: Message):
                     await k.edit(f"Succesfully Added {msg} files from {chat.title} to playlist")
                     await delete_messages([m, k])
             else:
-                await k.edit("The given channel is invalid. For private channels it should start with -100 and for public channels it should start with @\nExamples - `/cplay @VCPlayerFiles or /cplay -100125369865\n\nFor private channel, both bot and the USER account should be members of channel.")
+                await k.edit("The given channel is invalid. For private channels it should start with -100 and for public channels it should start with @")
                 await delete_messages([m, k])
         else:
-            await k.edit("You didn't gave me any channel. Give me a channel id or username from which i should play files . \nFor private channels it should start with -100 and for public channels it should start with @\nExamples - `/cplay @VCPlayerFiles or /cplay -100125369865\n\nFor private channel, both bot and the USER account should be members of channel.")
+            await k.edit("You didn't gave me any channel. Give me a channel id or username from which i should play files.\nFor private channels it should start with -100 and for public channels it should start with @")
             await delete_messages([m, k])
 
 
@@ -392,7 +392,7 @@ async def yt_play_list(client, m: Message):
     with suppress(MessageIdInvalid, MessageNotModified):
         if m.reply_to_message is not None and m.reply_to_message.document:
             if m.reply_to_message.document.file_name != "YouTube_PlayList.json":
-                k=await m.reply("Invalid PlayList file given. Use @GetPlayListBot  or search for a playlist in @DumpPlaylist to get a playlist file.")
+                k=await m.reply("Invalid PlayList file given.")
                 await delete_messages([m, k])
                 return
             ytplaylist=await m.reply_to_message.download()
@@ -415,7 +415,7 @@ async def yt_play_list(client, m: Message):
             else:
                 await delete_messages([m, status])
         else:
-            k=await m.reply("No playList file given. Use @GetPlayListBot  or search for a playlist in @DumpPlaylist to get a playlist file.")
+            k=await m.reply("No playList file given.")
             await delete_messages([m, k])
 
 
@@ -490,20 +490,19 @@ async def not_chat(_, m: Message):
     if m.from_user is not None and m.from_user.id in Config.SUDO:
         buttons = [
             [
-                InlineKeyboardButton('⚡️Change CHAT', callback_data='set_new_chat'),
+                InlineKeyboardButton('🔹 ᴄʜᴀɴɢᴇ ᴄʜᴀᴛ 🔸', callback_data='set_new_chat'),
             ],
             [
-                InlineKeyboardButton('No', callback_data='closesudo'),
+                InlineKeyboardButton('✗ ɴᴏᴘᴇ ✗', callback_data='closesudo'),
             ]
             ]
-        await m.reply("This is not the group which i have been configured to play, Do you want to set this group as default CHAT?", reply_markup=InlineKeyboardMarkup(buttons))
+        await m.reply("This Is Not The Group Which I Have Been Configured To Play, Do You Want To Set This Group As Default Chat?", reply_markup=InlineKeyboardMarkup(buttons))
         await delete_messages([m])
     else:
         buttons = [
             [
-                InlineKeyboardButton('⚡️Make Own Bot', url='https://github.com/subinps/VCPlayerBot'),
-                InlineKeyboardButton('🧩 Join Here', url='https://t.me/subin_works'),
+                InlineKeyboardButton('✨ ꜱᴜᴘᴘᴏʀᴛ ✨', url='https://t.me/DarkPentester'),
             ]
             ]
-        await m.reply("<b>You can't use this bot in this group, for that you have to make your own bot from the [SOURCE CODE](https://github.com/subinps/VCPlayerBot) below.</b>", disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(buttons))
+        await m.reply("<b>You Can't Use This Bot In This Group !</b>", disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(buttons))
 
